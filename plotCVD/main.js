@@ -674,7 +674,7 @@ function DisplayCvdInfoComponent_div_42_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 17);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "img", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("mouseover", function DisplayCvdInfoComponent_div_42_Template_img_mouseover_6_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r21.style.cursor = "hand"; })("click", function DisplayCvdInfoComponent_div_42_Template_img_click_6_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); const ctx_r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r22.onSubmitStateData(ctx_r22.selectIS); });
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DisplayCvdInfoComponent_div_42_Template_img_click_6_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r19); const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r21.onSubmitStateData(ctx_r21.selectIS); });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](7, "br");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, DisplayCvdInfoComponent_div_42_div_8_Template, 7, 0, "div", 21);
@@ -731,7 +731,7 @@ class DisplayCvdInfoComponent {
                 yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Number of cases/Growth rate'
+                            labelString: 'Number of New cases/Growth rate'
                         }
                     }]
             }
@@ -862,7 +862,7 @@ class DisplayCvdInfoComponent {
                 yAxes: [{
                         scaleLabel: {
                             display: true,
-                            labelString: 'Number of cases'
+                            labelString: 'Number of New cases'
                         }
                     }]
             }
@@ -901,8 +901,9 @@ class DisplayCvdInfoComponent {
             .slice((this.lstOfNwStateCases.length - this.numTotalcases), this.lstOfNwStateCases.length);
         this.lineChartDataStates[0].label = 'Covid Analysis data for Indian State: ' + this.nSelectedState;
         this.lineChartLabelsStates = this.lstOfStateDates;
+        let len = this.lstOfStateDates.length;
         // .slice((this.lstOfStateDates.length - this.numTotalcases), this.lstOfStateDates.length);
-        this.lineChartOptionsStates.scales.xAxes[0].scaleLabel.labelString = 'Data of last ' + this.numTotalcases + ' days';
+        this.lineChartOptionsStates.scales.xAxes[0].scaleLabel.labelString = 'Data of last ' + len + ' days';
     }
     onSubmitWorldData(cntryName) {
         this.neSelectedCntry = cntryName;
@@ -947,10 +948,10 @@ class DisplayCvdInfoComponent {
     ngOnInit() {
         this.ds.getIndiaData().subscribe(response => {
             this.completeCVDData = response;
-            console.log(this.completeCVDData);
+            // console.log(this.completeCVDData);
             for (const i of Object.keys(this.completeCVDData)) {
-                console.log('For the key :', i);
-                console.log(this.completeCVDData[i]);
+                // console.log('For the key :', i);
+                // console.log(this.completeCVDData[i]);
                 if (i === 'statewise') {
                     for (const data of this.completeCVDData[i]) {
                         this.stateList.push(data[`state`]);
@@ -991,7 +992,7 @@ class DisplayCvdInfoComponent {
             console.log('Throwing error again:', err);
             return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["throwError"])(err);
         })).subscribe(result => {
-            console.log(result);
+            // console.log(result);
             this.completeWrldCVDdata = JSON.parse(result);
             for (const keys of Object.keys(this.completeWrldCVDdata)) {
                 this.cntryList.push(this.completeWrldCVDdata[keys][`location`]);
@@ -1013,7 +1014,7 @@ class DisplayCvdInfoComponent {
         const promised = this.httpClient.get(this.apiURL).toPromise();
         console.log(promised);
         promised.then((data) => {
-            console.log('Promise resolved with: ', data);
+            // console.log('Promise resolved with: ', data);
         }).catch((err) => {
             console.log('Error: ', err);
         });
@@ -1045,8 +1046,8 @@ class DisplayCvdInfoComponent {
                     }
                 }
             }
-            console.log('Map of state and data :');
-            console.log(this.mapOfStateDtandCnfCases);
+            // console.log('Map of state and data :');
+            // console.log(this.mapOfStateDtandCnfCases);
         }, err => {
             console.log('Indian state Data Erorr: ', err);
         }, () => {
@@ -1058,8 +1059,8 @@ class DisplayCvdInfoComponent {
     }
 }
 DisplayCvdInfoComponent.ɵfac = function DisplayCvdInfoComponent_Factory(t) { return new (t || DisplayCvdInfoComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_data_service__WEBPACK_IMPORTED_MODULE_3__["DataService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_4__["HttpClient"])); };
-DisplayCvdInfoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DisplayCvdInfoComponent, selectors: [["app-display-cvd-info"]], decls: 44, vars: 16, consts: [["align", "center", 2, "color", "blue"], [1, "container"], [1, "row"], [1, "column"], ["for", "quantity", 2, "color", "brown", "font-weight", "bold"], ["type", "number", "id", "qantity", "name", "quantity", "value", "10", "min", "10", "max", "260"], ["quantity", ""], [1, "btn", "btn-primary", 3, "click"], [2, "color", "brown", "font-weight", "bold"], [4, "ngIf"], [3, "ngModel", "disabled", "ngModelChange", "change"], ["cnName", ""], ["value", ""], [3, "ngValue", 4, "ngFor", "ngForOf"], ["baseChart", "", "width", "200", "height", "70", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["class", "row", 4, "ngIf"], [3, "ngValue"], [1, "column", 2, "background-color", "whitesmoke"], ["width", "150", "height", "250", 3, "src", "mouseover", "click"], ["width", "20", "height", "20", "src", "https://www.pngitem.com/pimgs/m/514-5145836_transparent-blinking-clipart-animated-arrow-png-gif-png.png"], ["width", "70", "height", "90", 3, "src", "mouseover", "click"], ["class", "info", 4, "ngIf"], [2, "font-weight", "bold"], [4, "ngFor", "ngForOf"], ["class", "column", "style", "background-color: whitesmoke;", 4, "ngIf"], [1, "info"], [3, "ngStyle"], ["class", "btn btn-primary", 3, "click", 4, "ngIf"], ["baseChart", "", "width", "400", "height", "250", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"]], template: function DisplayCvdInfoComponent_Template(rf, ctx) { if (rf & 1) {
-        const _r23 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+DisplayCvdInfoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: DisplayCvdInfoComponent, selectors: [["app-display-cvd-info"]], decls: 44, vars: 16, consts: [["align", "center", 2, "color", "blue"], [1, "container"], [1, "row"], [1, "column"], ["for", "quantity", 2, "color", "brown", "font-weight", "bold"], ["type", "number", "id", "qantity", "name", "quantity", "value", "10", "min", "10", "max", "260"], ["quantity", ""], [1, "btn", "btn-primary", 3, "click"], [2, "color", "brown", "font-weight", "bold"], [4, "ngIf"], [3, "ngModel", "disabled", "ngModelChange", "change"], ["cnName", ""], ["value", ""], [3, "ngValue", 4, "ngFor", "ngForOf"], ["baseChart", "", "width", "200", "height", "70", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"], ["class", "row", 4, "ngIf"], [3, "ngValue"], [1, "column", 2, "background-color", "whitesmoke"], ["width", "150", "height", "250", 3, "src", "mouseover", "click"], ["width", "20", "height", "20", "src", "https://www.pngitem.com/pimgs/m/514-5145836_transparent-blinking-clipart-animated-arrow-png-gif-png.png"], ["width", "70", "height", "90", 3, "src", "click"], ["class", "info", 4, "ngIf"], [2, "font-weight", "bold"], [4, "ngFor", "ngForOf"], ["class", "column", "style", "background-color: whitesmoke;", 4, "ngIf"], [1, "info"], [3, "ngStyle"], ["class", "btn btn-primary", 3, "click", 4, "ngIf"], ["baseChart", "", "width", "400", "height", "250", 3, "datasets", "labels", "options", "colors", "legend", "chartType", "plugins"]], template: function DisplayCvdInfoComponent_Template(rf, ctx) { if (rf & 1) {
+        const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h2");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2, " COVID-19 ANALYSIS !!");
@@ -1076,7 +1077,7 @@ DisplayCvdInfoComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵ
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](10, "input", 5, 6);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](12, " \u00A0 \u00A0 ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](13, "button", 7);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DisplayCvdInfoComponent_Template_button_click_13_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r23); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); return ctx.onSubmit(_r0.value); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function DisplayCvdInfoComponent_Template_button_click_13_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r22); const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](11); return ctx.onSubmit(_r0.value); });
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](14, "Enter");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
